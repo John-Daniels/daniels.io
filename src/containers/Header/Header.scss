@@ -20,7 +20,7 @@
   height: 100%;
   flex-direction: row;
 
-  padding: 6rem 2rem 0;
+  padding: 4.5rem 2rem 0;
 
   @media screen and (min-width: 2000px) {
     padding-top: 8rem;
@@ -70,7 +70,7 @@
 
   .tag-cmp {
     flex-direction: column;
-    margin-top: 2rem;
+    margin: 1.7rem 0 0.8rem 0;
 
     p {
       width: 100%;

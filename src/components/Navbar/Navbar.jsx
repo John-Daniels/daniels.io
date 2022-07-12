@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { images } from "../../constants"
 
 import { HiMenuAlt4, HiX } from "react-icons/hi"
@@ -8,9 +8,6 @@ import "./Navbar.scss"
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false)
-  useEffect(() => {
-    console.log(toggle)
-  }, [toggle])
 
   return (
     <nav className='app__navbar'>
