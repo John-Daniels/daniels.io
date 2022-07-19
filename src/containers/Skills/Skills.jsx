@@ -4,7 +4,7 @@ import ReactToolTip from "react-tooltip"
 
 import { images } from "../../constants"
 
-import { AppWrap } from "../../wrapper"
+import { AppWrap, MotionWrap } from "../../wrapper"
 import { urlFor, client } from "../../cleint"
 
 import "./Skills.scss"
@@ -13,23 +13,60 @@ const _skills = [
   {
     name: "React",
     icon: images.react,
+    color: "edf2f8",
   },
   {
     name: "Figma",
     icon: images.figma,
+    color: "edf2f8",
   },
   {
     name: "Nodejs",
     icon: images.node,
+    color: "edf2f8",
   },
   {
-    title: "Git",
+    name: "Github",
     icon: images.git,
+    color: "edf2f8",
+  },
+]
+
+const _experiences = [
+  {
+    year: "2021",
+    works: [
+      {
+        name: "Full-Stack developer",
+        desc: "I worked remotely as a fullstack developer at fiverr",
+        company: "fiverr",
+      },
+      {
+        name: "Full-Stack developer",
+        desc: "I worked remotely as a fullstack developer at fiverr",
+        company: "fiverr",
+      },
+    ],
+  },
+  {
+    year: "2022",
+    works: [
+      {
+        name: "Backend developer",
+        desc: "I worked remotely as a Backend developer at texxalabs",
+        company: "texxalabs",
+      },
+      {
+        name: "Full-Stack developer",
+        desc: "I worked remotely as a fullstack developer at fiverr",
+        company: "fiverr",
+      },
+    ],
   },
 ]
 
 const Skills = () => {
-  const [experience, setExperience] = useState([])
+  const [experiences, setExperiences] = useState([])
   const [skills, setSkills] = useState([])
 
   useEffect(() => {
@@ -38,13 +75,19 @@ const Skills = () => {
 
     client
       .fetch(query)
-      .then((data) => setExperience(data))
-      .catch((e) => setExperience(_skills))
+      .then((data) => {
+        setExperiences(data)
+      })
+      .catch((e) => setExperiences(_experiences))
 
     client
       .fetch(skillsQuery)
-      .then((data) => setSkills(data))
-      .catch((e) => setExperience(_skills))
+      .then((data) => {
+        console.log(data)
+
+        setSkills(data)
+      })
+      .catch((e) => setSkills(_skills))
   }, [])
 
   return (
@@ -64,10 +107,44 @@ const Skills = () => {
                 className='app__flex'
                 style={{ backgroundColor: skill.bgColor }}
               >
-                <img src={skills.icon} alt={skill.name} />
+                <img src={urlFor(skill.icon)} alt={skill.name} />
               </div>
 
               <p className='p-text'>{skill.name}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <motion.div className='app__skills-exp'>
+          {experiences?.map((experience) => (
+            <motion.div className='app__skills-exp-item' key={experience.year}>
+              <div className='app__skills-exp-year'>
+                <p className='bold-text'>{experience.year}</p>
+              </div>
+              <motion.div className='app__skills-exp-works'>
+                {experience?.work?.map((work, index) => (
+                  <React.Fragment key={index}>
+                    <motion.div
+                      whileInView={{ opacity: [0, 1] }}
+                      transition={{ duration: 0.5 }}
+                      className='app__skills-exp-work app__flex'
+                      data-tip
+                      data-for={work.name}
+                    >
+                      <h4 className='bold-text'>{work.name}</h4>
+                      <p className='p-text'>{work.company}</p>
+                    </motion.div>
+                    <ReactToolTip
+                      id={work.name}
+                      effect='float'
+                      arrowColor='#fff'
+                      className='skills-tooltip'
+                    >
+                      {work.desc}
+                    </ReactToolTip>
+                  </React.Fragment>
+                ))}
+              </motion.div>
             </motion.div>
           ))}
         </motion.div>
@@ -76,4 +153,8 @@ const Skills = () => {
   )
 }
 
-export default Skills
+export default AppWrap(
+  MotionWrap(Skills, "app__skills"),
+  "skills",
+  "app__whitebg"
+)

@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { images } from "../../constants"
 import "./About.scss"
 import { urlFor, client } from "../../cleint"
-import AppWrap from "../../wrapper/AppWrap"
+import { AppWrap, MotionWrap } from "../../wrapper"
 
 const _abouts = [
   {
@@ -31,6 +31,8 @@ const _abouts = [
 
 const About = () => {
   const [abouts, setAbouts] = useState([])
+  // remove
+  const [isDevelopment, setisDevelopment] = useState(false)
 
   useEffect(() => {
     const query = '*[_type == "abouts"]'
@@ -58,7 +60,7 @@ const About = () => {
             className='app__profile-item'
             key={about.title + index}
           >
-            <img src={about.imageUrl} alt={about.title} />
+            <img src={urlFor(about.imageUrl)} alt={about.title} />
             <h2 className='bold-text' style={{ marginTop: 20 }}>
               {about.title}
             </h2>
@@ -72,4 +74,4 @@ const About = () => {
   )
 }
 
-export default AppWrap(About, "about")
+export default AppWrap(MotionWrap(About, "app__about"), "about", "app__whitebg")

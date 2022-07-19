@@ -3,7 +3,7 @@ import "./Work.scss"
 import { AiFillEye, AiFillGithub } from "react-icons/ai"
 import { motion } from "framer-motion"
 
-import { AppWrap } from "../../wrapper"
+import { AppWrap, MotionWrap } from "../../wrapper"
 import { urlFor, client } from "../../cleint"
 
 import "./Work.scss"
@@ -109,7 +109,7 @@ const Work = () => {
         {filterWork.map((work, index) => (
           <div className='app__work-item app__flex' key={index}>
             <div className='app__work-img app__flex'>
-              <img src={work.imageUrl} alt={work.name} />
+              <img src={urlFor(work.imageUrl)} alt={work.name} />
 
               {/* github and viewing icons */}
               <motion.div
@@ -170,4 +170,4 @@ const Work = () => {
   )
 }
 
-export default AppWrap(Work, "work")
+export default AppWrap(MotionWrap(Work, "app__works"), "work", "app_primarybg")

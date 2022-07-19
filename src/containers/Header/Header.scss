@@ -45,7 +45,7 @@
 
   @media screen and(max-width: 2000px) {
     width: 100%;
-    margin-right: 0rem;
+    margin-right: 1.2rem;
   }
 }
 
@@ -84,12 +84,12 @@
       @media screen and (min-width: 2000px) {
         font-size: 5rem;
       }
-
-      @media screen and (max-width: 1200px) {
-        justify-content: flex-start;
-        align-items: flex-start;
-      }
     }
+  }
+
+  @media screen and (max-width: 1200px) {
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 }
 
