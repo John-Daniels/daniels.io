@@ -3,10 +3,8 @@ import { motion } from "framer-motion"
 import ReactToolTip from "react-tooltip"
 
 import { images } from "../../constants"
-
 import { AppWrap, MotionWrap } from "../../wrapper"
 import { urlFor, client } from "../../cleint"
-
 import "./Skills.scss"
 
 const _skills = [
