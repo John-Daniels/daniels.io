@@ -71,21 +71,13 @@ const Skills = () => {
     const query = '*[_type == "experiences"]'
     const skillsQuery = '*[_type == "skills"]'
 
-    client
-      .fetch(query)
-      .then((data) => {
-        setExperiences(data)
-      })
-      .catch((e) => setExperiences(_experiences))
+    client.fetch(query).then((data) => {
+      setExperiences(data)
+    })
+    // .catch((e) => setExperiences(_experiences))
 
-    client
-      .fetch(skillsQuery)
-      .then((data) => {
-        console.log(data)
-
-        setSkills(data)
-      })
-      .catch((e) => setSkills(_skills))
+    client.fetch(skillsQuery).then((data) => setSkills(data))
+    // .catch((e) => setSkills(_skills))
   }, [])
 
   return (
