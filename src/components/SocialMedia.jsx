@@ -1,20 +1,60 @@
-import React from "react"
+import React, { useMemo } from "react"
 import { BsTwitter, BsInstagram } from "react-icons/bs"
+import { AiFillGithub } from "react-icons/ai"
 import { FaFacebookF } from "react-icons/fa"
 
 const SocialMedia = () => {
+  const links = {
+    twitter: "https://twitter.com/johnkoder",
+    fb: "https://facebook.com/johndcoder",
+    instagram: "https://www.instagram.com/johndkoder.js",
+    github: "https://github.com/John-Daniels",
+  }
+
+  const socialMediaHandles = useMemo(
+    () => [
+      {
+        url: "https://github.com/John-Daniels",
+        icon: <AiFillGithub />,
+        name: "github",
+      },
+      {
+        url: "https://twitter.com/johnkoder",
+        icon: <BsTwitter />,
+        name: "twitter",
+      },
+
+      {
+        url: "https://facebook.com/johndcoder",
+        icon: <FaFacebookF />,
+        name: "facebook",
+      },
+
+      {
+        url: "https://www.instagram.com/johndkoder.js",
+        icon: <BsInstagram />,
+        name: "instagram",
+      },
+    ],
+    []
+  )
+
   return (
     <div className='app__social'>
-      <div>
-        <BsTwitter />
-      </div>
-      <div>
-        <FaFacebookF />
-      </div>
-      <div>
-        <BsInstagram />
-      </div>
+      {socialMediaHandles.map((social) => (
+        <SocialIcon handle={social} />
+      ))}
     </div>
+  )
+}
+
+const SocialIcon = ({ handle }) => {
+  const { url, icon, name } = handle
+
+  return (
+    <a href={url} target='_blank' rel='noreferrer'>
+      <div>{icon}</div>
+    </a>
   )
 }
 
