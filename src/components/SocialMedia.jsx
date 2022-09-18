@@ -41,8 +41,8 @@ const SocialMedia = () => {
 
   return (
     <div className='app__social'>
-      {socialMediaHandles.map((social) => (
-        <SocialIcon handle={social} />
+      {socialMediaHandles.map((social, index) => (
+        <SocialIcon handle={social} key={index} />
       ))}
     </div>
   )
