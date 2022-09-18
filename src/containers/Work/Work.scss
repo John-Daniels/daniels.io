@@ -50,7 +50,7 @@
     flex-direction: column;
 
     margin: 2rem;
-    padding: 1rem;
+    padding: 0.5rem;
     border-radius: 0.5rem;
     background-color: #fff;
     color: #000;
@@ -64,7 +64,7 @@
 
     @media screen and (min-width: 2000px) {
       width: 470px;
-      padding: 1.25rem;
+      padding: 1rem;
       border-radius: 0.75rem;
     }
 
@@ -76,25 +76,28 @@
 }
 
 .app__work-img {
-  width: 300px;
+  max-width: 300px;
   height: 230px;
 
   position: relative;
 
   img {
-    width: 100%;
+    width: 300px;
     height: 100%;
     border-radius: 0.5rem;
     object-fit: cover;
   }
 
   @media screen and (max-width: 400px) {
-    width: 280px;
+    width: 270px;
+    img {
+      width: 270px;
+    }
   }
 
-  @media screen and (min-width: 2000px) {
-    height: 350%;
-  }
+  // @media screen and (min-width: 2000px) {
+  // height: 350%;
+  // }
 }
 
 .app__work-hover {
@@ -134,7 +137,7 @@
 
 .app__work-content {
   padding: 0.5rem;
-  width: 100%;
+  width: 280px;
   position: relative;
   flex-direction: column;
 
@@ -145,7 +148,6 @@
 
   .app__work-tag {
     position: absolute;
-
     padding: 0.5rem 1rem;
     border-radius: 10px;
     background-color: #fff;
