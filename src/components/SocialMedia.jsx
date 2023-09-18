@@ -31,7 +31,7 @@ const SocialMedia = () => {
       },
 
       {
-        url: "https://www.instagram.com/johndkoder.dev",
+        url: "https://www.instagram.com/johnkoder.dev",
         icon: <BsInstagram />,
         name: "instagram",
       },
