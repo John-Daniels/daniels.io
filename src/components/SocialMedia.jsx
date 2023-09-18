@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import { BsTwitter, BsInstagram } from "react-icons/bs";
 import { AiFillGithub } from "react-icons/ai";
 import { FaFacebookF } from "react-icons/fa";
+import { BsLinkedin } from "react-icons/bs";
 
 const SocialMedia = () => {
   const links = {
@@ -19,17 +20,20 @@ const SocialMedia = () => {
         name: "github",
       },
       {
+        url: "https://www.linkedin.com/in/johnkoder/",
+        icon: <BsLinkedin />,
+        name: "linkedin",
+      },
+      {
         url: "https://twitter.com/johnkoder",
         icon: <BsTwitter />,
         name: "twitter",
       },
-
       {
         url: "https://facebook.com/johndcoder",
         icon: <FaFacebookF />,
         name: "facebook",
       },
-
       {
         url: "https://www.instagram.com/johnkoder.dev",
         icon: <BsInstagram />,
