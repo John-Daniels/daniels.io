@@ -1,7 +1,7 @@
-import React, { useMemo } from "react"
-import { BsTwitter, BsInstagram } from "react-icons/bs"
-import { AiFillGithub } from "react-icons/ai"
-import { FaFacebookF } from "react-icons/fa"
+import React, { useMemo } from "react";
+import { BsTwitter, BsInstagram } from "react-icons/bs";
+import { AiFillGithub } from "react-icons/ai";
+import { FaFacebookF } from "react-icons/fa";
 
 const SocialMedia = () => {
   const links = {
@@ -9,7 +9,7 @@ const SocialMedia = () => {
     fb: "https://facebook.com/johndcoder",
     instagram: "https://www.instagram.com/johndkoder.js",
     github: "https://github.com/John-Daniels",
-  }
+  };
 
   const socialMediaHandles = useMemo(
     () => [
@@ -31,31 +31,31 @@ const SocialMedia = () => {
       },
 
       {
-        url: "https://www.instagram.com/johndkoder.js",
+        url: "https://www.instagram.com/johndkoder.dev",
         icon: <BsInstagram />,
         name: "instagram",
       },
     ],
     []
-  )
+  );
 
   return (
-    <div className='app__social'>
+    <div className="app__social">
       {socialMediaHandles.map((social, index) => (
         <SocialIcon handle={social} key={index} />
       ))}
     </div>
-  )
-}
+  );
+};
 
 const SocialIcon = ({ handle }) => {
-  const { url, icon, name } = handle
+  const { url, icon, name } = handle;
 
   return (
-    <a href={url} target='_blank' rel='noreferrer'>
+    <a href={url} target="_blank" rel="noreferrer">
       <div>{icon}</div>
     </a>
-  )
-}
+  );
+};
 
-export default SocialMedia
+export default SocialMedia;
